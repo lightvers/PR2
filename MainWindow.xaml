@@ -1,0 +1,148 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Игра-кликер" Height="450" Width="800" MinHeight="450" MinWidth="800">
+    <Grid Height="434" VerticalAlignment="Bottom">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Grid.Column="1" HorizontalAlignment="Left" Height="128" Margin="176,0,0,0" VerticalAlignment="Top" Width="225">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="/3435f186875a4d7cf2c4946555591e93.jpg"/>
+            </Rectangle.Fill>
+        </Rectangle>
+
+
+        <Grid/>
+        <Image MouseDown="AttackEnemy" x:Name="enemyImage" HorizontalAlignment="Left" Height="456" Margin="349,-16,0,0" VerticalAlignment="Top" Width="277"  RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" >
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+          
+        </Image>
+        <Label Content="Характеристики персонажа " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="219,4,0,0" Grid.Column="1" Width="176">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7210C8"/>
+                    <GradientStop Color="#FF7F0707" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+            <Label.BorderBrush>
+                <ImageBrush/>
+            </Label.BorderBrush>
+        </Label>
+        <Label x:Name="enemyHealth" Content="HP: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="187,49,0,0" Grid.Column="1" RenderTransformOrigin="0.46,1.464">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7210C8"/>
+                    <GradientStop Color="#FFC81010" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Label x:Name="enemyArmor" Content="DEF: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="188,87,0,0" Grid.Column="1">
+            <Label.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF7210C8"/>
+                    <GradientStop Color="#FF7F0707" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.Background>
+        </Label>
+        <Grid Margin="120,20,349,-14" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="273*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Rectangle HorizontalAlignment="Left" Height="139" Margin="-120,-17,0,0" VerticalAlignment="Top" Width="229" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="/b2.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Image x:Name="playerImage" Margin="10,66,56,-26" Source="m.png" Stretch="Fill" Grid.Row="1" Grid.ColumnSpan="2"/>
+            <Label x:Name="playerHealth" Content="HP: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="-112,40,0,0" Grid.Row="1">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="playerGlasses" Content="EXP: " VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="-111,87,128,0" Grid.Row="1">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="playerLevel" Content="LV: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="-35,84,0,0" Grid.Row="1">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="playerArmor" Content="DEF: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="-26,40,0,0" Grid.Row="1">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label x:Name="playerMoney" Content="Coins: " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="29,86,0,0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label Content="Характеристики персонажа " HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight ="Bold" Foreground="White" Margin="-118,-11,0,0" Width="181" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <Label.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF4B5044"/>
+                        <GradientStop Color="#FF839669" Offset="1"/>
+                    </LinearGradientBrush>
+                </Label.Background>
+            </Label>
+            <Label Content="Мусорка" HorizontalAlignment="Left" Margin="20,12,0,0" Grid.Row="1" VerticalAlignment="Top" Width="89" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Foreground="#FF060606">
+               
+            </Label>
+        </Grid>
+
+
+
+        <Label Grid.Column="1" Content="Нагито" HorizontalAlignment="Left" Margin="279,60,0,0" VerticalAlignment="Top" Height="34" Width="140" Foreground="White" BorderBrush="Black" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+            
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label Grid.Column="1" Content="Комаэда" HorizontalAlignment="Left" Margin="292,80,0,0" VerticalAlignment="Top" Height="39" Width="154" Foreground="Black" BorderBrush="Black" FontSize="18" FontWeight="Bold" RenderTransformOrigin="0.5,0.5">
+           
+        </Label>
+        
+
+
+        <Grid.Background>
+            <ImageBrush ImageSource="back.jpg"/>
+        </Grid.Background>
+
+
+    </Grid>
+</Window>
